@@ -236,7 +236,10 @@ func TestGetAllWebsitesViewsAsSortKeyTwoLimit(t *testing.T) {
 	assert.Equal(t, expected, actual)
 }
 
-func TestGetAllWebsitesInvalidKeyValidLimit(t *testing.T) {
+/**
+ * SortKey = test, Limit = 2
+ */
+func TestGetAllWebsitesInvalidSortKeyValidLimit(t *testing.T) {
 	req, err := http.NewRequest("GET", "/websites?sortKey=test&limit=2", nil)
 	if err != nil {
 		t.Fatal(err)
