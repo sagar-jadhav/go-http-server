@@ -42,7 +42,7 @@ func main() {
 	}
 
 	r := mux.NewRouter()
-	r.HandleFunc("/websites", handler.GetAllWebsites)
+	r.HandleFunc("/api/v1/websites", handler.GetAllWebsites)
 
 	log.Println("Server is listening at port 9090.")
 	log.Fatal(http.ListenAndServe(":9090", r))

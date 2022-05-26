@@ -198,7 +198,7 @@ func (c *MockHttpClient) Do(req *http.Request) (*http.Response, error) {
  * SortKey = views, Limit = 2
  */
 func TestGetAllWebsitesViewsAsSortKeyTwoLimit(t *testing.T) {
-	req, err := http.NewRequest("GET", "/websites?sortKey=views&limit=2", nil)
+	req, err := http.NewRequest("GET", "/api/v1/websites?sortKey=views&limit=2", nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -240,7 +240,7 @@ func TestGetAllWebsitesViewsAsSortKeyTwoLimit(t *testing.T) {
  * SortKey = test, Limit = 2
  */
 func TestGetAllWebsitesInvalidSortKeyValidLimit(t *testing.T) {
-	req, err := http.NewRequest("GET", "/websites?sortKey=test&limit=2", nil)
+	req, err := http.NewRequest("GET", "/api/v1/websites?sortKey=test&limit=2", nil)
 	if err != nil {
 		t.Fatal(err)
 	}
