@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: server
+  name: server
+  namespace: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: server
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: server
+    spec:
+      containers:
+      - image: server:1.0
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: URL_LIST
+          value: "https://raw.githubusercontent.com/assignment132/assignment/main/duckduckgo.json,https://raw.githubusercontent.com/assignment132/assignment/main/google.json,https://raw.githubusercontent.com/assignment132/assignment/main/wikipedia.json"
+        - name: RETRY_COUNT
+          value: "5"
+        name: go-http-server
+        securityContext:
+          runAsNonRoot: true
+          runAsUser: 10000
+          runAsGroup: 10000
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+status: {}

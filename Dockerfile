@@ -19,4 +19,8 @@ WORKDIR /app/
 
 COPY --from=builder /usr/src/app/app ./
 
+RUN addgroup -S appgroup && adduser -S runner -u 10000 -G appgroup
+
+USER runner
+
 CMD ["./app"]
