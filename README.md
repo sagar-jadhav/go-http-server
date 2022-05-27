@@ -29,7 +29,7 @@
   export RETRY_COUNT=5
   ```
 
-  Here `URL_LIST` is the comma-separated list of URLs from which data will be retrieved concurrently and `RETRY_COUNT` is the number of attempts that the server will take to retrieve the data if the request fails in the first attempt. In the above example, the server will try 5 times to retrieve the data before it throws an error.
+  Here `URL_LIST` is the comma-separated list of URLs from which data will be retrieved concurrently and `RETRY_COUNT` is the number of attempts that the server will take to retrieve the data if the request fails in the first attempt. In the above example, If the server fails to retrieve the data from the URL then it will keep on retrying till either it successfully retrieved the data or the retry attempt reaches 5, If after 5 attempts also the server fails then it will send the error in the response.
 
 - Run the server using the following command:
 
